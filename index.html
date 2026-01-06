@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Education University</title>
+
+<style>
+:root{:root{
+  --primary:#0a2540;
+  --accent:#38bdf8;
+
+  /* NEW */
+  --shadow-accent: rgba(56,189,248,.35);
+}
+
+.dark{
+  --primary:#020617;
+  --accent:#22d3ee;
+
+  /* NEW */
+  --shadow-accent: rgba(34,211,238,.45);
+}
+
+  --primary:#0a2540;
+  --accent:#38bdf8;
+  --bg:#f4f6fb;
+  --card:#ffffff;
+  --text:#1f2933;
+  --glass:rgba(255,255,255,.75);
+}
+.dark{
+  --primary:#020617;
+  --accent:#22d3ee;
+  --bg:#020617;
+  --card:#0f172a;
+  --text:#e5e7eb;
+  --glass:rgba(15,23,42,.85);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s;
+}
+html{scroll-behavior:smooth;}
+
+/* HEADER */
+header{background:var(--primary);position:sticky;top:0;z-index:1000;}
+.nav{
+  max-width:1200px;margin:auto;
+  padding:15px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.logo-text{color:white;font-size:1.4rem;font-weight:bold;}
+nav ul{list-style:none;display:flex;gap:30px;}
+nav a{color:white;text-decoration:none;font-weight:bold;}
+.menu-btn{display:none;color:white;font-size:26px;cursor:pointer;}
+.toggle{
+  background:var(--accent);
+  border:none;
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:white;
+  text-align:center;
+  padding:130px 20px;
+}
+.hero h1{font-size:2.6rem;}
+.hero p{margin:15px 0;}
+.hero button{
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* SECTIONS */
+section{padding:70px 20px;}
+.container{max-width:1200px;margin:auto;}
+h2{text-align:center;margin-bottom:40px;color:var(--accent);}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  position:relative;
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  border-radius:18px;
+  padding:28px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow: 0 12px 30px rgba(56,189,248,.35), 0 22px 55px rgba(10,37,64,.25);
+
+  transition:.35s;
+}.card:hover{
+  box-shadow:0 18px 40px rgba(56,189,248,.45),
+    0 30px 70px rgba(10,37,64,.35);
+}
+
+.card:hover{transform:translateY(-12px) scale(1.02);}
+.icon{font-size:44px;margin-bottom:12px;}
+.card h3{color:var(--accent);}
+
+
+
+/* MODAL */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+}
+.overlay.active{display:flex;}
+.modal{
+  background:var(--card);
+  max-width:420px;
+  width:90%;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  animation:pop .4s ease;
+}
+.modal h3{color:var(--accent);}
+.modal button{
+  margin-top:20px;
+  padding:10px 26px;
+  border:none;
+  border-radius:25px;
+  background:var(--accent);
+  font-weight:bold;
+  cursor:pointer;
+}
+@keyframes pop{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+/* STUDENT GALLERY */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+.g-item{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:white;
+  height:180px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.2rem;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
+.g-item:hover{transform:scale(1.05);}
+
+/* FORM */
+form{
+  background:var(--card);
+  max-width:600px;
+  margin:auto;
+  padding:35px;
+  border-radius:16px;
+  box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+form input,form select{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:8px;
+}
+form button{
+  width:100%;
+  padding:13px;
+  background:var(--accent);
+  border:none;
+  border-radius:8px;
+}
+
+/* FOOTER */
+footer{
+  background:var(--primary);
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+
+@media(max-width:768px){
+  .menu-btn{display:block;}
+  nav ul{display:none;flex-direction:column;}
+  nav ul.show{display:flex;background:var(--primary);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo-text">Prime Education University</div>
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+    <nav>
+      <ul>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#student-gallery">Gallery</a></li>
+        <li><a href="#admission">Admission</a></li>
+      </ul>
+    </nav>
+    <button class="toggle" onclick="toggleDark()">🌙</button>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Prime Education University</h1>
+  <p>Modern Education | Leadership | Innovation</p>
+</div>
+
+<section id="programs">
+  <div class="container">
+    <h2>Academic Programs</h2>
+    <div class="cards">
+      <div class="card" onclick="openModal('Computer Science','AI, Data Science, Web Development, Cyber Security')">
+        <div class="icon">💻</div><h3>Computer Science</h3>
+      </div>
+      <div class="card" onclick="openModal('BBA','Business, Marketing, Finance & Entrepreneurship')">
+        <div class="icon">📊</div><h3>BBA</h3>
+      </div>
+      <div class="card" onclick="openModal('Electrical Engineering','Power Systems & Electronics')">
+        <div class="icon">⚡</div><h3>Electrical Engineering</h3>
+      </div>
+      <div class="card" onclick="openModal('Software Engineering','Modern Software Design & Development')">
+        <div class="icon">📐</div><h3>Software Engineering</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="facilities">
+  <div class="container">
+    <h2>Campus Facilities</h2>
+    <div class="cards">
+      <div class="card" onclick="openModal('Library','Digital & Physical learning resources')">
+        <div class="icon">📚</div><h3>Library</h3>
+      </div>
+      <div class="card" onclick="openModal('Hostels','Safe & comfortable accommodation')">
+        <div class="icon">🏠</div><h3>Hostels</h3>
+      </div>
+      <div class="card" onclick="openModal('Sports','Indoor & outdoor sports facilities')">
+        <div class="icon">🏏</div><h3>Sports</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="student-gallery">
+  <div class="container">
+    <h2>Student Gallery</h2>
+    <div class="gallery-grid">
+      <div class="g-item" onclick="openGallery(0)">Campus Life</div>
+      <div class="g-item" onclick="openGallery(1)">Classrooms</div>
+      <div class="g-item" onclick="openGallery(2)">Labs</div>
+      <div class="g-item" onclick="openGallery(3)">Sports Day</div>
+      <div class="g-item" onclick="openGallery(4)">Convocation</div>
+      <div class="g-item" onclick="openGallery(5)">Events</div>
+    </div>
+  </div>
+</section>
+
+<section id="admission">
+  <div class="container">
+    <h2>Admission Form</h2>
+    <form onsubmit="return validateForm()">
+      <input id="name" placeholder="Full Name">
+      <input id="email" type="email" placeholder="Email">
+      <select id="program">
+        <option value="">Select Program</option>
+        <option>BSCS</option>
+        <option>BBA</option>
+        <option>BSSE</option>
+      </select>
+      <button>Submit</button>
+    </form>
+  </div>
+</section>
+
+<section id="map">
+  <div class="container">
+    <h2>Campus Location</h2>
+    <iframe src="https://maps.google.com/maps?q=Sukkur%20IBA%20University&output=embed"
+      style="width:100%;height:350px;border-radius:18px;border:0;"></iframe>
+  </div>
+</section>
+
+<footer>© 2025 Prime Education University | Final Project</footer>
+
+<!-- COMMON MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <button onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<!-- GALLERY MODAL -->
+<div class="overlay" id="galleryOverlay">
+  <div class="modal">
+    <h3 id="galleryTitle"></h3>
+    <p>Student moments (images can be added later)</p>
+    <div style="display:flex;gap:15px;justify-content:center;">
+      <button onclick="prevPic()">◀ Prev</button>
+      <button onclick="nextPic()">Next ▶</button>
+    </div>
+    <button onclick="closeGallery()">Close</button>
+  </div>
+</div>
+
+<script>
+function toggleMenu(){
+  document.querySelector("nav ul").classList.toggle("show");
+}
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+function openModal(t,d){
+  modalTitle.innerText=t;
+  modalText.innerText=d;
+  overlay.classList.add("active");
+}
+function closeModal(){overlay.classList.remove("active");}
+function validateForm(){
+  if(!name.value||!email.value||!program.value){
+    openModal("Error","Please fill all fields");
+    return false;
+  }
+  openModal("Success","Form submitted successfully");
+  return false;
+}
+let galleryItems=["Campus Life","Classrooms","Labs","Sports Day","Convocation","Events"];
+let currentIndex=0;
+function openGallery(i){
+  currentIndex=i;
+  galleryTitle.innerText=galleryItems[currentIndex];
+  galleryOverlay.classList.add("active");
+}
+function closeGallery(){galleryOverlay.classList.remove("active");}
+function nextPic(){
+  currentIndex=(currentIndex+1)%galleryItems.length;
+  galleryTitle.innerText=galleryItems[currentIndex];
+}
+function prevPic(){
+  currentIndex=(currentIndex-1+galleryItems.length)%galleryItems.length;
+  galleryTitle.innerText=galleryItems[currentIndex];
+}
+</script>
+
+</body>
+</html>
